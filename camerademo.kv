@@ -1,0 +1,65 @@
+#:kivy 1.8.0
+<CameraDemo>:
+    FloatLayout:
+        Label:
+            id: path_label
+            text: 'Picture name'
+            pos_hint: {'x': 0.25, 'y': 0.9}
+            size_hint: 0.5, 0.1
+
+        TextInput:
+            id: filename_text
+            text: '1.jpg'
+            pos_hint: {'x': 0.25, 'y': .87}
+            size_hint: 0.5, 0.05
+            multiline: False
+
+        Button:
+            text: 'Take picture from camera!'
+            pos_hint: {'x': 0, 'y': 0}
+            size_hint: 0.5, 0.07
+            on_press: root.do_capture()
+
+        Button:
+            text: 'Load picture from gallery'
+            pos_hint: {'x': 0.5, 'y': 0}
+            size_hint: 0.5, 0.07
+            on_press: root.add_picture()
+
+        Button:
+            text: 'Watch photo'
+            pos_hint: {'x': 0, 'y': 0.07}
+            size_hint: 0.5, 0.07
+            on_press: root.watch_photo()
+
+        Button:
+            text: 'Send photo'
+            pos_hint: {'x': 0.5, 'y': 0.07}
+            size_hint: 0.5, 0.07
+            on_press: root.send_photo()
+
+        Image:
+            id: picture
+            source: 'Wall.jpg'
+            pos_hint: {'x': 0, 'y': .15}
+            size_hint: 1, .7
+
+<MsgPopup>:
+    size_hint: .7, .4
+    title: "Attention"
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 20
+
+        Label:
+            id: message_label
+            size_hint_y: 0.4
+            text: "Label"
+        Button:
+            text: 'Ok'
+            size_hint_y: 0.4
+            on_press: root.dismiss()
+
+
